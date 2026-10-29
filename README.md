@@ -64,3 +64,4 @@ npm run preview
 - `scripts/validate-data.ts`: validaciones de los datos generados.
 - `public/data/`: JSON derivado y regenerable.
 - `tests/`: Vitest y Playwright.
+Cambio realizado desde la rama dev
