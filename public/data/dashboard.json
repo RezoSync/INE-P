@@ -1,0 +1,1331 @@
+{
+  "national": [
+    {
+      "value": 44.1,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+      "year": 2009,
+      "precision": "oficial",
+      "voters": 33316974,
+      "nonVoters": null,
+      "kind": "intermedia",
+      "averageAge": 43.12,
+      "listNominal": null
+    },
+    {
+      "value": 62.1,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+      "year": 2012,
+      "precision": "oficial",
+      "voters": 47383154,
+      "nonVoters": null,
+      "kind": "presidencial",
+      "averageAge": 42.22,
+      "listNominal": null
+    },
+    {
+      "value": 47.1,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+      "year": 2015,
+      "precision": "oficial",
+      "voters": 36926612,
+      "nonVoters": null,
+      "kind": "intermedia",
+      "averageAge": 44.08,
+      "listNominal": null
+    },
+    {
+      "value": 62.4,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+      "year": 2018,
+      "precision": "oficial",
+      "voters": 51784399,
+      "nonVoters": null,
+      "kind": "presidencial",
+      "averageAge": 43.4,
+      "listNominal": null
+    },
+    {
+      "value": 51.8,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+      "year": 2021,
+      "precision": "oficial",
+      "voters": 46389189,
+      "nonVoters": null,
+      "kind": "intermedia",
+      "averageAge": 45.09,
+      "listNominal": null
+    },
+    {
+      "value": 59.7,
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos y Datos generales",
+      "year": 2024,
+      "precision": "oficial",
+      "voters": 54899228,
+      "nonVoters": 37105466,
+      "kind": "presidencial",
+      "averageAge": 45.46,
+      "listNominal": 98330348
+    }
+  ],
+  "entities": [
+    {
+      "code": "AGS",
+      "name": "Aguascalientes",
+      "elections": [
+        {
+          "value": 58.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 626084,
+          "nonVoters": 441222,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1097171
+        }
+      ],
+      "listNominal": 1097171,
+      "votesNoEsp": 29865,
+      "votesNoEspPct": 2.7,
+      "iml": 93.2,
+      "imv": 77.5
+    },
+    {
+      "code": "BC",
+      "name": "Baja California",
+      "elections": [
+        {
+          "value": 47,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1396335,
+          "nonVoters": 1571676,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 3197817
+        }
+      ],
+      "listNominal": 3197817,
+      "votesNoEsp": 229806,
+      "votesNoEspPct": 7.2,
+      "iml": 99.6,
+      "imv": 85.8
+    },
+    {
+      "code": "BCS",
+      "name": "Baja California Sur",
+      "elections": [
+        {
+          "value": 53.1,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 310713,
+          "nonVoters": 274921,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 613613
+        }
+      ],
+      "listNominal": 613613,
+      "votesNoEsp": 27979,
+      "votesNoEspPct": 4.6,
+      "iml": 104.4,
+      "imv": 91.1
+    },
+    {
+      "code": "CAMP",
+      "name": "Campeche",
+      "elections": [
+        {
+          "value": 62.9,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 372086,
+          "nonVoters": 219303,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 694600
+        }
+      ],
+      "listNominal": 694600,
+      "votesNoEsp": 103211,
+      "votesNoEspPct": 14.9,
+      "iml": 95.8,
+      "imv": 83.2
+    },
+    {
+      "code": "CHIS",
+      "name": "Chiapas",
+      "elections": [
+        {
+          "value": 61.8,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 2180203,
+          "nonVoters": 1349180,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 4003376
+        }
+      ],
+      "listNominal": 4003376,
+      "votesNoEsp": 473993,
+      "votesNoEspPct": 11.8,
+      "iml": 92,
+      "imv": 77.8
+    },
+    {
+      "code": "CHIH",
+      "name": "Chihuahua",
+      "elections": [
+        {
+          "value": 51.9,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1360070,
+          "nonVoters": 1262547,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 3082363
+        }
+      ],
+      "listNominal": 3082363,
+      "votesNoEsp": 459746,
+      "votesNoEspPct": 14.9,
+      "iml": 96.5,
+      "imv": 86
+    },
+    {
+      "code": "CDMX",
+      "name": "Ciudad de México",
+      "elections": [
+        {
+          "value": 69.3,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 5383288,
+          "nonVoters": 2383980,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 7918590
+        }
+      ],
+      "listNominal": 7918590,
+      "votesNoEsp": 151322,
+      "votesNoEspPct": 1.9,
+      "iml": 88.8,
+      "imv": 78.6
+    },
+    {
+      "code": "COAH",
+      "name": "Coahuila",
+      "elections": [
+        {
+          "value": 64.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1332644,
+          "nonVoters": 728554,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2410670
+        }
+      ],
+      "listNominal": 2410670,
+      "votesNoEsp": 349472,
+      "votesNoEspPct": 14.5,
+      "iml": 97.2,
+      "imv": 82.5
+    },
+    {
+      "code": "COL",
+      "name": "Colima",
+      "elections": [
+        {
+          "value": 56.4,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 321763,
+          "nonVoters": 248259,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 584921
+        }
+      ],
+      "listNominal": 584921,
+      "votesNoEsp": 14899,
+      "votesNoEspPct": 2.5,
+      "iml": 95.4,
+      "imv": 82.9
+    },
+    {
+      "code": "DGO",
+      "name": "Durango",
+      "elections": [
+        {
+          "value": 53.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 735959,
+          "nonVoters": 633637,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1397549
+        }
+      ],
+      "listNominal": 1397549,
+      "votesNoEsp": 27953,
+      "votesNoEspPct": 2,
+      "iml": 95.1,
+      "imv": 80
+    },
+    {
+      "code": "GTO",
+      "name": "Guanajuato",
+      "elections": [
+        {
+          "value": 55.8,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 2592525,
+          "nonVoters": 2051034,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 4831159
+        }
+      ],
+      "listNominal": 4831159,
+      "votesNoEsp": 187600,
+      "votesNoEspPct": 3.9,
+      "iml": 91.1,
+      "imv": 72.8
+    },
+    {
+      "code": "GRO",
+      "name": "Guerrero",
+      "elections": [
+        {
+          "value": 56.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1424264,
+          "nonVoters": 1085641,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2643256
+        }
+      ],
+      "listNominal": 2643256,
+      "votesNoEsp": 133351,
+      "votesNoEspPct": 5,
+      "iml": 89.6,
+      "imv": 75.4
+    },
+    {
+      "code": "HGO",
+      "name": "Hidalgo",
+      "elections": [
+        {
+          "value": 63.6,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1427044,
+          "nonVoters": 816507,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2386306
+        }
+      ],
+      "listNominal": 2386306,
+      "votesNoEsp": 142755,
+      "votesNoEspPct": 6,
+      "iml": 89.1,
+      "imv": 75.6
+    },
+    {
+      "code": "JAL",
+      "name": "Jalisco",
+      "elections": [
+        {
+          "value": 57.1,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 3555352,
+          "nonVoters": 2675653,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 6619379
+        }
+      ],
+      "listNominal": 6619379,
+      "votesNoEsp": 388374,
+      "votesNoEspPct": 5.9,
+      "iml": 94.4,
+      "imv": 81.7
+    },
+    {
+      "code": "MEX",
+      "name": "Estado de México",
+      "elections": [
+        {
+          "value": 63.9,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 7959555,
+          "nonVoters": 4506099,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 13026772
+        }
+      ],
+      "listNominal": 13026772,
+      "votesNoEsp": 561118,
+      "votesNoEspPct": 4.3,
+      "iml": 90.4,
+      "imv": 75.9
+    },
+    {
+      "code": "MICH",
+      "name": "Michoacán",
+      "elections": [
+        {
+          "value": 54,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1856524,
+          "nonVoters": 1584446,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 3748985
+        }
+      ],
+      "listNominal": 3748985,
+      "votesNoEsp": 308015,
+      "votesNoEspPct": 8.2,
+      "iml": 91.7,
+      "imv": 77.9
+    },
+    {
+      "code": "MOR",
+      "name": "Morelos",
+      "elections": [
+        {
+          "value": 61.4,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 891464,
+          "nonVoters": 559413,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1549606
+        }
+      ],
+      "listNominal": 1549606,
+      "votesNoEsp": 98729,
+      "votesNoEspPct": 6.4,
+      "iml": 89.6,
+      "imv": 76.5
+    },
+    {
+      "code": "NAY",
+      "name": "Nayarit",
+      "elections": [
+        {
+          "value": 55.8,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 491815,
+          "nonVoters": 389953,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 950653
+        }
+      ],
+      "listNominal": 950653,
+      "votesNoEsp": 68885,
+      "votesNoEspPct": 7.2,
+      "iml": 96.4,
+      "imv": 81
+    },
+    {
+      "code": "NL",
+      "name": "Nuevo León",
+      "elections": [
+        {
+          "value": 55.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 2303911,
+          "nonVoters": 1832065,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 4466271
+        }
+      ],
+      "listNominal": 4466271,
+      "votesNoEsp": 330295,
+      "votesNoEspPct": 7.4,
+      "iml": 99.4,
+      "imv": 86.6
+    },
+    {
+      "code": "OAX",
+      "name": "Oaxaca",
+      "elections": [
+        {
+          "value": 58.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1703640,
+          "nonVoters": 1200572,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 3116671
+        }
+      ],
+      "listNominal": 3116671,
+      "votesNoEsp": 212459,
+      "votesNoEspPct": 6.8,
+      "iml": 87.4,
+      "imv": 74.6
+    },
+    {
+      "code": "PUE",
+      "name": "Puebla",
+      "elections": [
+        {
+          "value": 64.3,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 2963223,
+          "nonVoters": 1647122,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 4978673
+        }
+      ],
+      "listNominal": 4978673,
+      "votesNoEsp": 368328,
+      "votesNoEspPct": 7.4,
+      "iml": 87.5,
+      "imv": 73.3
+    },
+    {
+      "code": "QRO",
+      "name": "Querétaro",
+      "elections": [
+        {
+          "value": 61,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1131708,
+          "nonVoters": 724097,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1899053
+        }
+      ],
+      "listNominal": 1899053,
+      "votesNoEsp": 43248,
+      "votesNoEspPct": 2.3,
+      "iml": 93.5,
+      "imv": 78.1
+    },
+    {
+      "code": "QROO",
+      "name": "Quintana Roo",
+      "elections": [
+        {
+          "value": 54.7,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 773940,
+          "nonVoters": 640198,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1460071
+        }
+      ],
+      "listNominal": 1460071,
+      "votesNoEsp": 45933,
+      "votesNoEspPct": 3.1,
+      "iml": 102.2,
+      "imv": 88.4
+    },
+    {
+      "code": "SLP",
+      "name": "San Luis Potosí",
+      "elections": [
+        {
+          "value": 61.2,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1239523,
+          "nonVoters": 784885,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2185470
+        }
+      ],
+      "listNominal": 2185470,
+      "votesNoEsp": 161062,
+      "votesNoEspPct": 7.4,
+      "iml": 92.4,
+      "imv": 77.3
+    },
+    {
+      "code": "SIN",
+      "name": "Sinaloa",
+      "elections": [
+        {
+          "value": 54.5,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1162020,
+          "nonVoters": 969260,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2360619
+        }
+      ],
+      "listNominal": 2360619,
+      "votesNoEsp": 229339,
+      "votesNoEspPct": 9.7,
+      "iml": 94.7,
+      "imv": 81
+    },
+    {
+      "code": "SON",
+      "name": "Sonora",
+      "elections": [
+        {
+          "value": 49.6,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1018161,
+          "nonVoters": 1035322,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2291013
+        }
+      ],
+      "listNominal": 2291013,
+      "votesNoEsp": 237530,
+      "votesNoEspPct": 10.4,
+      "iml": 97.2,
+      "imv": 83.8
+    },
+    {
+      "code": "TAB",
+      "name": "Tabasco",
+      "elections": [
+        {
+          "value": 59.9,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 996395,
+          "nonVoters": 667359,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1811510
+        }
+      ],
+      "listNominal": 1811510,
+      "votesNoEsp": 147756,
+      "votesNoEspPct": 8.2,
+      "iml": 92.3,
+      "imv": 79.7
+    },
+    {
+      "code": "TAMPS",
+      "name": "Tamaulipas",
+      "elections": [
+        {
+          "value": 55.4,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1430666,
+          "nonVoters": 1150369,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 2848982
+        }
+      ],
+      "listNominal": 2848982,
+      "votesNoEsp": 267947,
+      "votesNoEspPct": 9.4,
+      "iml": 95,
+      "imv": 82.3
+    },
+    {
+      "code": "TLAX",
+      "name": "Tlaxcala",
+      "elections": [
+        {
+          "value": 70.1,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 684285,
+          "nonVoters": 291993,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1042696
+        }
+      ],
+      "listNominal": 1042696,
+      "votesNoEsp": 66418,
+      "votesNoEspPct": 6.4,
+      "iml": 90.2,
+      "imv": 76.9
+    },
+    {
+      "code": "VER",
+      "name": "Veracruz",
+      "elections": [
+        {
+          "value": 58.4,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 3392712,
+          "nonVoters": 2415520,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 6080517
+        }
+      ],
+      "listNominal": 6080517,
+      "votesNoEsp": 272285,
+      "votesNoEspPct": 4.5,
+      "iml": 89.2,
+      "imv": 78.1
+    },
+    {
+      "code": "YUC",
+      "name": "Yucatán",
+      "elections": [
+        {
+          "value": 71.4,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 1165576,
+          "nonVoters": 465769,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1766077
+        }
+      ],
+      "listNominal": 1766077,
+      "votesNoEsp": 134732,
+      "votesNoEspPct": 7.6,
+      "iml": 94.6,
+      "imv": 84.1
+    },
+    {
+      "code": "ZAC",
+      "name": "Zacatecas",
+      "elections": [
+        {
+          "value": 58.9,
+          "source": "INE, Plataforma CCPC 2009-2024, Datos generales (entidad, 2024)",
+          "year": 2024,
+          "precision": "oficial",
+          "voters": 715780,
+          "nonVoters": 498910,
+          "kind": "presidencial",
+          "averageAge": null,
+          "listNominal": 1265939
+        }
+      ],
+      "listNominal": 1265939,
+      "votesNoEsp": 51249,
+      "votesNoEspPct": 4,
+      "iml": 93,
+      "imv": 76.8
+    }
+  ],
+  "profiles": [
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 17,
+      "totalVoters": 33316974,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 25,
+      "totalVoters": 33316974,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 23,
+      "totalVoters": 33316974,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 21,
+      "totalVoters": 33316974,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 13,
+      "totalVoters": 33316974,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 16,
+      "totalVoters": 47383154,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 25,
+      "totalVoters": 47383154,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 23,
+      "totalVoters": 47383154,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 22,
+      "totalVoters": 47383154,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 15,
+      "totalVoters": 47383154,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 20,
+      "totalVoters": 36926612,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 26,
+      "totalVoters": 36926612,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 21,
+      "totalVoters": 36926612,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 19,
+      "totalVoters": 36926612,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 14,
+      "totalVoters": 36926612,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 18,
+      "totalVoters": 51784399,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 26,
+      "totalVoters": 51784399,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 21,
+      "totalVoters": 51784399,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 21,
+      "totalVoters": 51784399,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 14,
+      "totalVoters": 51784399,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 22,
+      "totalVoters": 46389189,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 28,
+      "totalVoters": 46389189,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 19,
+      "totalVoters": 46389189,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 19,
+      "totalVoters": 46389189,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 13,
+      "totalVoters": 46389189,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Mayor",
+      "value": 23,
+      "totalVoters": 54899228,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Plena",
+      "value": 27,
+      "totalVoters": 54899228,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta",
+      "value": 19,
+      "totalVoters": 54899228,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Adulta Joven",
+      "value": 18,
+      "totalVoters": 54899228,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "etapa_vida",
+      "group": "Juventud",
+      "value": 13,
+      "totalVoters": 54899228,
+      "precision": "oficial (redondeado a entero en la fuente)",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 67.64,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 21.15,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 11.21,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 69.19,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 18.78,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 12.02,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 66.31,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 20.86,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 12.84,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 68.87,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 17.86,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 13.28,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 66.8,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 19.49,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 13.7,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Urbana",
+      "value": 69.87,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Rural",
+      "value": 17.47,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "dimension": "tipo_seccion",
+      "group": "Mixta",
+      "value": 12.66,
+      "totalVoters": null,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+    }
+  ],
+  "quartiles": [
+    {
+      "year": 2009,
+      "kind": "intermedia",
+      "maximum": 62,
+      "q3": 50.4,
+      "median": 41.7,
+      "q1": 38.6,
+      "minimum": 30.4,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    },
+    {
+      "year": 2012,
+      "kind": "presidencial",
+      "maximum": 76.8,
+      "q3": 65,
+      "median": 61.1,
+      "q1": 58.6,
+      "minimum": 51.5,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    },
+    {
+      "year": 2015,
+      "kind": "intermedia",
+      "maximum": 70.6,
+      "q3": 55,
+      "median": 45.1,
+      "q1": 40.9,
+      "minimum": 30,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    },
+    {
+      "year": 2018,
+      "kind": "presidencial",
+      "maximum": 74.5,
+      "q3": 65.5,
+      "median": 62.4,
+      "q1": 56.9,
+      "minimum": 50.4,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    },
+    {
+      "year": 2021,
+      "kind": "intermedia",
+      "maximum": 65.8,
+      "q3": 56.2,
+      "median": 51.8,
+      "q1": 47.8,
+      "minimum": 37.6,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    },
+    {
+      "year": 2024,
+      "kind": "presidencial",
+      "maximum": 71.4,
+      "q3": 62.1,
+      "median": 58.5,
+      "q1": 55.3,
+      "minimum": 47,
+      "precision": "oficial",
+      "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+    }
+  ],
+  "map": {
+    "topologyAvailable": true,
+    "objectName": "entidades",
+    "topologyError": null
+  }
+}

@@ -1,0 +1,7 @@
+anio,tipo_eleccion,participacion_pct,si_votaron,no_votaron,lista_nominal,edad_promedio_votantes,precision,fuente
+2009,Intermedia,44.1,33316974,,,43.12,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+2012,Presidencial,62.1,47383154,,,42.22,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+2015,Intermedia,47.1,36926612,,,44.08,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+2018,Presidencial,62.4,51784399,,,43.4,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+2021,Intermedia,51.8,46389189,,,45.09,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+2024,Presidencial,59.7,54899228,37105466,98330348,45.46,oficial,"INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos y Datos generales"

@@ -1,0 +1,51 @@
+{
+  "name": "15-anos-de-tu-voto",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "packageManager": "pnpm@10.34.3",
+  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild"],
+    "overrides": {
+      "uuid": "^11.1.1"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build:data": "tsx scripts/build-data.ts",
+    "validate:data": "tsx scripts/validate-data.ts",
+    "check": "tsc --noEmit && vitest run",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test:e2e": "playwright test",
+    "audit": "corepack pnpm audit --prod --audit-level high",
+    "format": "oxfmt"
+  },
+  "dependencies": {
+    "@fontsource/montserrat": "^5.2.6",
+    "@fontsource/noto-sans": "^5.2.6",
+    "d3": "^7.9.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "topojson-client": "^3.1.0",
+    "exceljs": "^4.4.0",
+    "zod": "^4.6.6"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.0",
+    "@types/d3": "^7.4.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/topojson-client": "^3.1.5",
+    "@types/topojson-specification": "^1.0.5",
+    "@vitejs/plugin-react": "^6.0.0",
+    "tailwindcss": "^4.0.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "oxfmt": "^0.2.0",
+    "typescript": "^5.7.0",
+    "vite": "^8.0.5",
+    "tsx": "^4.20.0",
+    "vitest": "^3.2.0"
+  }
+}

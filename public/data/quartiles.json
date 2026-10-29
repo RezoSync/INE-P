@@ -1,0 +1,68 @@
+[
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "maximum": 62,
+    "q3": 50.4,
+    "median": 41.7,
+    "q1": 38.6,
+    "minimum": 30.4,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "maximum": 76.8,
+    "q3": 65,
+    "median": 61.1,
+    "q1": 58.6,
+    "minimum": 51.5,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "maximum": 70.6,
+    "q3": 55,
+    "median": 45.1,
+    "q1": 40.9,
+    "minimum": 30,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "maximum": 74.5,
+    "q3": 65.5,
+    "median": 62.4,
+    "q1": 56.9,
+    "minimum": 50.4,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "maximum": 65.8,
+    "q3": 56.2,
+    "median": 51.8,
+    "q1": 47.8,
+    "minimum": 37.6,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "maximum": 71.4,
+    "q3": 62.1,
+    "median": 58.5,
+    "q1": 55.3,
+    "minimum": 47,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos (desglose en cuartiles de la participación estatal)"
+  }
+]

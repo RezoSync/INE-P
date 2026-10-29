@@ -1,0 +1,482 @@
+[
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 17,
+    "totalVoters": 33316974,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 25,
+    "totalVoters": 33316974,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 23,
+    "totalVoters": 33316974,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 21,
+    "totalVoters": 33316974,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 13,
+    "totalVoters": 33316974,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 16,
+    "totalVoters": 47383154,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 25,
+    "totalVoters": 47383154,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 23,
+    "totalVoters": 47383154,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 22,
+    "totalVoters": 47383154,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 15,
+    "totalVoters": 47383154,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 20,
+    "totalVoters": 36926612,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 26,
+    "totalVoters": 36926612,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 21,
+    "totalVoters": 36926612,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 19,
+    "totalVoters": 36926612,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 14,
+    "totalVoters": 36926612,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 18,
+    "totalVoters": 51784399,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 26,
+    "totalVoters": 51784399,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 21,
+    "totalVoters": 51784399,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 21,
+    "totalVoters": 51784399,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 14,
+    "totalVoters": 51784399,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 22,
+    "totalVoters": 46389189,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 28,
+    "totalVoters": 46389189,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 19,
+    "totalVoters": 46389189,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 19,
+    "totalVoters": 46389189,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 13,
+    "totalVoters": 46389189,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Mayor",
+    "value": 23,
+    "totalVoters": 54899228,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Plena",
+    "value": 27,
+    "totalVoters": 54899228,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta",
+    "value": 19,
+    "totalVoters": 54899228,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Adulta Joven",
+    "value": 18,
+    "totalVoters": 54899228,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "etapa_vida",
+    "group": "Juventud",
+    "value": 13,
+    "totalVoters": 54899228,
+    "precision": "oficial (redondeado a entero en la fuente)",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 67.64,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 21.15,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2009,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 11.21,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 69.19,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 18.78,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2012,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 12.02,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 66.31,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 20.86,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2015,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 12.84,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 68.87,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 17.86,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2018,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 13.28,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 66.8,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 19.49,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2021,
+    "kind": "intermedia",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 13.7,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Urbana",
+    "value": 69.87,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Rural",
+    "value": 17.47,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  },
+  {
+    "year": 2024,
+    "kind": "presidencial",
+    "dimension": "tipo_seccion",
+    "group": "Mixta",
+    "value": 12.66,
+    "totalVoters": null,
+    "precision": "oficial",
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Comparativos"
+  }
+]

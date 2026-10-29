@@ -1,0 +1,68 @@
+[
+  {
+    "value": 44.1,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+    "year": 2009,
+    "precision": "oficial",
+    "voters": 33316974,
+    "nonVoters": null,
+    "kind": "intermedia",
+    "averageAge": 43.12,
+    "listNominal": null
+  },
+  {
+    "value": 62.1,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+    "year": 2012,
+    "precision": "oficial",
+    "voters": 47383154,
+    "nonVoters": null,
+    "kind": "presidencial",
+    "averageAge": 42.22,
+    "listNominal": null
+  },
+  {
+    "value": 47.1,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+    "year": 2015,
+    "precision": "oficial",
+    "voters": 36926612,
+    "nonVoters": null,
+    "kind": "intermedia",
+    "averageAge": 44.08,
+    "listNominal": null
+  },
+  {
+    "value": 62.4,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+    "year": 2018,
+    "precision": "oficial",
+    "voters": 51784399,
+    "nonVoters": null,
+    "kind": "presidencial",
+    "averageAge": 43.4,
+    "listNominal": null
+  },
+  {
+    "value": 51.8,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos",
+    "year": 2021,
+    "precision": "oficial",
+    "voters": 46389189,
+    "nonVoters": null,
+    "kind": "intermedia",
+    "averageAge": 45.09,
+    "listNominal": null
+  },
+  {
+    "value": 59.7,
+    "source": "INE, Plataforma CCPC 2009-2024, tablero Datos sociodemográficos y Datos generales",
+    "year": 2024,
+    "precision": "oficial",
+    "voters": 54899228,
+    "nonVoters": 37105466,
+    "kind": "presidencial",
+    "averageAge": 45.46,
+    "listNominal": 98330348
+  }
+]
