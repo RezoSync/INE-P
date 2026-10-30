@@ -17,6 +17,7 @@ import { getMapBucket, createMapRanges } from "./data/map-scale"
 import { Pending, formatPercent, preciseLabel } from "./components/DataStatus"
 import { NationalHistory } from "./components/NationalHistory"
 import { Profiles } from "./components/Profiles"
+import { DataSources } from "./components/DataSources"
 import { SectionHeading } from "./components/SectionHeading"
 import { Glossary } from "./components/Glossary"
 import { QuickQuestions } from "./components/QuickQuestions"
@@ -1054,6 +1055,16 @@ function Dashboard() {
   }, [retry])
 
   useEffect(() => {
+    if (!data) return
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    if (!id) return
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(id)?.scrollIntoView()
+    })
+    return () => window.cancelAnimationFrame(frame)
+  }, [data])
+
+  useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>("main section[id], footer[id]")
     const observer = new IntersectionObserver(
       (entries) => {
@@ -1078,10 +1089,11 @@ function Dashboard() {
             <NationalHistory data={data} />
             <StateExplorer data={data} />
             <Profiles records={data.profiles} national={data.national} />
+            <DataSources />
             <section className="cta">
               <div className="container cta-inner">
                 <div><p className="eyebrow">La democracia se construye</p><h2>Tu participación<br />también cuenta.</h2></div>
-                <a className="button button-light" href="#fuentes">Conoce las fuentes</a>
+                <a className="button button-light" href="#origen-datos">Conoce las fuentes</a>
               </div>
             </section>
           </main>

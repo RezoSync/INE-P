@@ -57,7 +57,7 @@ export function Header({ activeSection }: { activeSection: string }) {
     ["historia", "Historia"],
     ["estados", "Explora tu estado"],
     ["perfiles", "¿Quiénes votan?"],
-    ["fuentes", "Fuentes"],
+    ["origen-datos", "Fuentes"],
   ]
   return (
     <>

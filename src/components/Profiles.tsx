@@ -2,6 +2,7 @@ import { useState, type KeyboardEvent } from "react"
 import { elections } from "../data/elections"
 import { SectionHeading } from "./SectionHeading"
 import { Pending } from "./DataStatus"
+import { SectionActions } from "./SectionActions"
 import type { ElectionRecord, ProfileRecord } from "../data/types"
 
 const profileTabs = [
@@ -166,6 +167,19 @@ export function Profiles({ records, national }: { records: ProfileRecord[]; nati
             )}
           </div>
           <p className="source-note">Fuente: Plataforma CCPC 2009–2024, INE. Los porcentajes se muestran tal como aparecen en la fuente, incluso cuando por redondeo suman menos o más de 100 %.</p>
+          <SectionActions
+            sectionId="perfiles"
+            fileName={`composicion-votantes-${tab === "etapa_vida" ? "etapa-de-vida" : "tipo-de-seccion"}`}
+            rows={dimensionRecords.length ? dimensionRecords.map((record) => ({
+              Año: record.year,
+              "Tipo de elección": record.kind === "presidencial" ? "Presidencial" : "Intermedia",
+              Categoría: label,
+              Grupo: record.group,
+              "Porcentaje de votantes (%)": record.value,
+              "Total de votantes": record.totalVoters,
+              Fuente: record.source,
+            })) : undefined}
+          />
         </div>
 
         <section className="age-section" aria-labelledby="average-age-title">

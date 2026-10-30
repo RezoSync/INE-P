@@ -47,6 +47,12 @@ npm run preview
 
 `npm run build:data` valida los CSV con Zod y genera JSON en `public/data/`. Falla con un mensaje explícito si faltan elecciones, entidades, columnas o si no coinciden los totales, la lista nominal o la fórmula. También valida los seis rangos de cuartiles y el CSV de diferencias, que no aparece en la interfaz. El estado del mapa queda explícitamente pendiente si no hay geometría TopoJSON válida.
 
+## Descargas, enlaces y origen de los datos
+
+- Cada sección con datos (historia nacional, cuartiles, estados y composición de votantes) tiene un botón **Descargar datos (CSV)**. El archivo se genera en el navegador, con codificación UTF-8 con BOM para abrirse bien en Excel; los valores ausentes quedan vacíos y los textos que parecerían fórmulas se neutralizan. La lógica está en `src/data/csv.ts` y el botón en `src/components/SectionActions.tsx`.
+- El botón **Compartir esta sección** copia al portapapeles el enlace con ancla (`#historia`, `#cuartiles`, `#estados`, `#perfiles`, `#origen-datos`). Al abrir un enlace así, la página se desplaza a la sección en cuanto cargan los datos.
+- La sección **¿De dónde salen estos datos?** (`src/components/DataSources.tsx`) explica en lenguaje simple la fuente, la fórmula, los datos pendientes y la diferencia entre composición y participación.
+
 ## Agregar datos
 
 1. Obtén y documenta los valores desde la fuente oficial; no rellenes vacíos con cálculos o estimaciones.

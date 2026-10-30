@@ -1,25 +1,7 @@
 import { useState } from "react"
+import { toCsv, type DownloadRow } from "../data/csv"
 
-export type DownloadValue = string | number | null
-export type DownloadRow = Record<string, DownloadValue>
-
-function csvCell(value: DownloadValue): string {
-  if (value === null) return ""
-  let text = String(value)
-  if (typeof value === "string" && /^[\s]*[=+\-@]/.test(value)) {
-    text = `'${text}`
-  }
-  return `"${text.replace(/"/g, '""')}"`
-}
-
-function toCsv(rows: DownloadRow[]): string {
-  if (!rows.length) return ""
-  const headers = Object.keys(rows[0]!)
-  return [
-    headers.map(csvCell).join(","),
-    ...rows.map((row) => headers.map((header) => csvCell(row[header] ?? null)).join(",")),
-  ].join("\r\n")
-}
+export type { DownloadRow, DownloadValue } from "../data/csv"
 
 export function SectionActions({
   sectionId,

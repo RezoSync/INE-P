@@ -1,3 +1,4 @@
+import { readFileSync } from "node:fs"
 import { expect, test } from "@playwright/test"
 
 test("recorrido con datos locales del INE, estados pendientes y descarga", async ({ page, baseURL }) => {
@@ -159,4 +160,77 @@ test("recorrido con datos locales del INE, estados pendientes y descarga", async
   await expect(glossaryParticipation.getByRole("tooltip")).toContainText("sí votaron")
   expect(externalRequests).toEqual([])
   expect(consoleErrors).toEqual([])
+})
+
+test("descargas CSV, enlaces a secciones y origen de los datos", async ({ page, context }) => {
+  await context.grantPermissions(["clipboard-read", "clipboard-write"])
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto("/")
+
+  // #cuartiles está anidada dentro de #historia: se apunta solo a las acciones propias de historia.
+  const historia = page.locator("#historia > .container > .section-actions")
+  const nationalDownload = page.waitForEvent("download")
+  await historia.getByRole("button", { name: "Descargar datos (CSV)" }).click()
+  const national = await nationalDownload
+  expect(national.suggestedFilename()).toBe("participacion-nacional.csv")
+  const nationalCsv = readFileSync((await national.path())!, "utf-8")
+  expect(nationalCsv.startsWith("\uFEFF")).toBe(true)
+  expect(nationalCsv.replace("\uFEFF", "").trim().split("\r\n")).toHaveLength(7)
+  await expect(historia.getByRole("status")).toContainText("Se descargaron 6 filas")
+
+  await historia.getByRole("button", { name: "Compartir esta sección" }).click()
+  await expect(historia.getByRole("status")).toContainText("Enlace de esta sección copiado")
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/#historia$/)
+
+  const cuartilesShare = page.locator("#cuartiles").getByRole("button", { name: "Compartir esta sección" })
+  await cuartilesShare.focus()
+  await cuartilesShare.press("Enter")
+  await expect(page.locator("#cuartiles").getByRole("status")).toContainText("Enlace de esta sección copiado")
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/#cuartiles$/)
+
+  const perfiles = page.locator("#perfiles")
+  const lifeStageDownload = page.waitForEvent("download")
+  await perfiles.getByRole("button", { name: "Descargar datos (CSV)" }).click()
+  expect((await lifeStageDownload).suggestedFilename()).toBe("composicion-votantes-etapa-de-vida.csv")
+  await perfiles.getByRole("tab", { name: "Tipo de sección" }).click()
+  const sectionTypeDownload = page.waitForEvent("download")
+  await perfiles.getByRole("button", { name: "Descargar datos (CSV)" }).click()
+  expect((await sectionTypeDownload).suggestedFilename()).toBe("composicion-votantes-tipo-de-seccion.csv")
+
+  await page.locator(".nav-links").getByRole("link", { name: "Fuentes", exact: true }).click()
+  await expect(page).toHaveURL(/#origen-datos$/)
+  await expect(page.locator("#origen-datos")).toBeInViewport()
+  await expect(page.locator(".data-source-card")).toHaveCount(6)
+  await expect(page.locator("#origen-datos")).toContainText("Plataforma CCPC")
+  await expect(page.locator("#origen-datos")).toContainText("La lista nominal no se usa como denominador")
+  await expect(page.locator("#origen-datos").getByRole("button", { name: "Descargar datos (CSV)" })).toHaveCount(0)
+})
+
+test("un enlace directo a una sección abre esa sección una vez cargados los datos", async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 1000 })
+  await page.goto("/#cuartiles")
+  await expect(page.getByRole("heading", { name: "Cuartiles estatales" })).toBeInViewport()
+  await page.goto("/#origen-datos")
+  await page.reload()
+  await expect(page.locator("#origen-datos")).toBeInViewport()
+})
+
+test("origen de los datos y acciones de sección en móvil sin desbordamiento", async ({ page }) => {
+  await page.setViewportSize({ width: 375, height: 812 })
+  await page.goto("/#origen-datos")
+  await expect(page.locator("#origen-datos")).toBeInViewport()
+  await expect(page.locator(".data-source-card")).toHaveCount(6)
+  const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(overflow).toBeLessThanOrEqual(0)
+
+  await page.locator("#historia").scrollIntoViewIfNeeded()
+  const buttons = page.locator("#historia > .container > .section-actions .button")
+  await expect(buttons).toHaveCount(2)
+  for (let index = 0; index < 2; index += 1) {
+    const box = await buttons.nth(index).boundingBox()
+    expect(box!.height).toBeGreaterThanOrEqual(44)
+    expect(box!.x + box!.width).toBeLessThanOrEqual(375)
+  }
+  const mobileOverflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth)
+  expect(mobileOverflow).toBeLessThanOrEqual(0)
 })

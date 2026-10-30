@@ -2240,3 +2240,83 @@ td {
 .pending-compact small {
   font-size: calc(11px * var(--text-scale, 1));
 }
+
+/* Fase 4: descargas, enlaces a secciones y origen de los datos */
+.section-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
+}
+
+.section-actions .button {
+  min-height: 48px;
+  max-width: 100%;
+  padding-block: 10px;
+  text-align: center;
+}
+
+.section-action-message {
+  flex: 1 1 100%;
+  margin: 0;
+  color: var(--muted);
+  font-size: calc(14px * var(--text-scale, 1));
+  overflow-wrap: anywhere;
+}
+
+.data-sources-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.data-source-card {
+  min-width: 0;
+  padding: var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+}
+
+.data-source-card h3 {
+  margin: 0 0 var(--space-1);
+  color: var(--wine);
+  font: 700 calc(18px * var(--text-scale, 1)) Montserrat, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.data-source-card p {
+  margin: 0;
+  color: var(--ink);
+  font-size: calc(16px * var(--text-scale, 1));
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 1179px) {
+  .data-sources-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .data-sources-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .data-source-card {
+    padding: var(--space-3);
+  }
+
+  .section-actions .button {
+    width: 100%;
+  }
+}
+
+@media print {
+  .section-actions {
+    display: none;
+  }
+}

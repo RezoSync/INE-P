@@ -32,6 +32,14 @@ Las presidenciales (2012, 2018, 2024) y las intermedias (2009, 2015, 2021) se ma
 - `public/data/`: salida JSON regenerable.
 - `tests/`: Vitest y Playwright.
 
+## Descargas, enlaces y origen de los datos
+
+- `src/data/csv.ts`: `csvCell` y `toCsv` (puros y probados en `src/data/csv.test.ts`). Los `null` se descargan como celdas vacías; nunca se rellenan. Los textos que empiezan con `=`, `+`, `-` o `@` se prefijan con `'` para evitar fórmulas.
+- `src/components/SectionActions.tsx`: botón de descarga CSV (solo si recibe `rows`) y botón para copiar el enlace con ancla de la sección. Se usa en `historia`, `cuartiles`, `estados`, `perfiles` y `origen-datos` (esta última solo con enlace).
+- `src/components/DataSources.tsx`: sección `origen-datos`, enlazada desde la navegación ("Fuentes") y el CTA. No agregar aquí cifras que no provengan de los CSV de `data-source/`.
+- `src/App.tsx`: tras cargar los datos, desplaza la página a la sección indicada en `location.hash`.
+- Las descargas se generan localmente con `Blob`; no hay peticiones a terceros ni cookies, por lo que se respeta la CSP.
+
 ## Privacidad, accesibilidad y seguridad
 
 No añadir solicitudes a terceros, recursos remotos, cookies ni analítica. Respetar CSP y encabezados documentados en `docs/SEGURIDAD.md`. Mantener tablas accesibles, navegación por teclado, foco visible, contraste AA, reducción de movimiento y diseño sin desplazamiento horizontal en anchos menores a 1180 px.
