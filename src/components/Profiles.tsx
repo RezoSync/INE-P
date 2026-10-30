@@ -48,7 +48,7 @@ function CompositionTable({ records }: { records: ProfileRecord[] }) {
 function CompositionChart({ records, dimension }: { records: ProfileRecord[]; dimension: ProfileDimension }) {
   const groups = [...new Set(records.map(({ group }) => group))]
   return (
-    <div className="composition-chart" aria-label="Composición de votantes por elección">
+    <div className="composition-chart" role="group" aria-label="Composición de votantes por elección">
       {elections.map(({ year, kind }) => {
         const electionRecords = records.filter((record) => record.year === year)
         const total = electionRecords.reduce((sum, record) => sum + record.value, 0)
@@ -145,7 +145,9 @@ export function Profiles({ records, national }: { records: ProfileRecord[]; nati
             <div className="profile-chart-heading">
               <div>
                 <h3>Composición de votantes: {label.toLowerCase()}</h3>
-                <p>Porcentaje del total de personas que votaron en cada elección; no representa una tasa de participación. Se conserva el redondeo de la fuente y no se normalizan los totales.</p>
+                <p>
+                  Muestra qué proporción del total de votantes pertenece a cada {label.toLowerCase()}. No muestra qué proporción de cada grupo votó. Se conserva el redondeo de la fuente y no se normalizan los totales.
+                </p>
               </div>
               {dimensionRecords.length > 0 && (
                 <button className="button button-secondary" aria-controls="composition-content" aria-pressed={showTable} onClick={() => setShowTable((shown) => !shown)}>
@@ -159,8 +161,7 @@ export function Profiles({ records, national }: { records: ProfileRecord[]; nati
               </div>
             ) : (
               <div className="profile-pending">
-                <Pending />
-                <p>No hay datos de composición para esta categoría en los archivos disponibles.</p>
+                <Pending reason="Los archivos disponibles no incluyen datos de composición para esta categoría." />
               </div>
             )}
           </div>
@@ -176,15 +177,20 @@ export function Profiles({ records, national }: { records: ProfileRecord[]; nati
             <p>Edad promedio registrada en el tablero del INE para cada proceso.</p>
           </div>
           <AverageAgeChart records={national} />
+          <p className="chart-note">
+            Muestra la edad promedio de las personas votantes por elección. No muestra cuántas personas votaron en cada edad ni la participación por edad.
+          </p>
         </section>
 
         <aside className="age-sex-pending" aria-label="Desgloses de participación pendientes">
           {["edad", "sexo", "tipo de sección"].map((dimension) => (
             <div className="pending-dimension" key={dimension}>
-              <Pending compact />
+              <Pending
+                compact
+                reason={`La Plataforma CCPC no ofrece la tasa de participación por ${dimension} en los datos disponibles.`}
+              />
               <div>
                 <h3>Tasa de participación por {dimension}</h3>
-                <p>El tablero del INE no entrega este dato desagregado.</p>
               </div>
             </div>
           ))}

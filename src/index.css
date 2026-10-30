@@ -16,13 +16,15 @@
 
   body {
     min-width: 320px;
-    margin: 0;
-    color: var(--ink);
-    background: var(--paper);
-    font-family: "Noto Sans", sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-  }
+      max-width: 100%;
+      margin: 0;
+      overflow-x: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "Noto Sans", sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
   button,
   select {
@@ -682,6 +684,8 @@
 
 .pending {
   display: flex;
+  width: 100%;
+  min-width: 0;
   min-height: 64px;
   align-items: center;
   gap: 12px;
@@ -689,6 +693,11 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-sm);
   background: var(--paper);
+}
+
+.pending > span {
+  min-width: 0;
+  flex: 1;
 }
 
 .pending strong,
@@ -699,6 +708,7 @@
 .pending small {
   margin-top: 4px;
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
 .pending-pattern {
@@ -711,10 +721,17 @@
 }
 
 .pending-compact {
+  min-width: 0;
   min-height: 36px;
   padding: 4px;
   border: 0;
   font-size: 12px;
+  width: 100%;
+}
+
+.pending-compact > span {
+  min-width: 0;
+  flex: 1;
 }
 
 .pending-compact .pending-pattern {
@@ -1293,25 +1310,40 @@ td {
 }
 
 .pending-dimension {
-  display: flex;
+  display: block;
+  width: 100%;
   min-width: 0;
-  align-items: center;
-  gap: 12px;
+}
+
+.pending-dimension > .pending {
+  width: 100%;
 }
 
 .pending-dimension > div:last-child {
   min-width: 0;
+  margin-top: 10px;
+}
+
+.pending-dimension > div:last-child h3,
+.pending-dimension > div:last-child p {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .age-sex-pending h3 {
   margin: 0;
   color: var(--wine);
   font: 700 16px Montserrat, sans-serif;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .age-sex-pending p {
   margin: 4px 0 0;
   color: var(--muted);
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .profile-pending {
@@ -1751,4 +1783,110 @@ td {
   .footer p {
     color: var(--ink);
   }
+}
+
+.hero-summary {
+  max-width: 46ch;
+  margin: 18px 0;
+  color: var(--paper);
+  font-size: 16px;
+}
+
+.hero-summary strong {
+  color: var(--paper);
+}
+
+.hero .chart-note {
+  color: color-mix(in srgb, var(--paper) 86%, transparent);
+}
+
+.chart-note {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.timeline-note {
+  margin: var(--space-2) 0 var(--space-4);
+}
+
+.glossary {
+  margin-top: var(--space-4);
+  padding-top: var(--space-2);
+  border-top: 1px solid color-mix(in srgb, var(--paper) 34%, transparent);
+}
+
+.glossary h2 {
+  margin: 0 0 4px;
+  color: var(--paper);
+  font: 700 16px Montserrat, sans-serif;
+}
+
+.glossary > p {
+  margin: 0 0 10px;
+  color: color-mix(in srgb, var(--paper) 86%, transparent);
+  font-size: 13px;
+}
+
+.glossary ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.glossary-item {
+  position: relative;
+  max-width: 100%;
+}
+
+.glossary-item summary {
+  display: inline-block;
+  max-width: 100%;
+  padding: 6px 10px;
+  color: var(--paper);
+  border: 1px solid color-mix(in srgb, var(--paper) 65%, transparent);
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  list-style: none;
+}
+
+.glossary-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.glossary-item summary::after {
+  margin-left: 6px;
+  content: "+";
+}
+
+.glossary-item[open] summary::after {
+  content: "−";
+}
+
+.glossary-tooltip {
+  position: absolute;
+  z-index: 8;
+  top: calc(100% + 8px);
+  left: 0;
+  width: min(280px, calc(100vw - 40px));
+  max-width: calc(100vw - 40px);
+  padding: 12px;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+  box-shadow: var(--shadow-card);
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.pending-compact small {
+  font-size: 11px;
 }

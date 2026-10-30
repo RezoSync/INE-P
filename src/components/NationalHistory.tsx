@@ -41,6 +41,9 @@ function SeriesChart({
           ))}
         </div>
       </div>
+      <p className="chart-note">
+        Muestra el porcentaje nacional por proceso. No compara estados ni grupos de personas; las elecciones presidenciales e intermedias se muestran por separado.
+      </p>
     </article>
   )
 }
@@ -107,6 +110,9 @@ export function NationalHistory({ data }: { data: DashboardData }) {
             ))}
           </div>
           <div className="quartile-axis" aria-hidden="true"><span>0 %</span><span>50 %</span><span>100 %</span></div>
+          <p className="chart-note">
+            Muestra cómo se distribuye la participación entre entidades en cada elección. No identifica qué entidad ocupa cada valor ni representa la participación de cada grupo de personas.
+          </p>
         </section>
       </div>
     </section>

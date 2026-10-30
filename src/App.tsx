@@ -18,6 +18,7 @@ import { Pending, formatPercent, preciseLabel } from "./components/DataStatus"
 import { NationalHistory } from "./components/NationalHistory"
 import { Profiles } from "./components/Profiles"
 import { SectionHeading } from "./components/SectionHeading"
+import { Glossary } from "./components/Glossary"
 import { Footer, Header } from "./components/SiteChrome"
 import type {
   DashboardData,
@@ -138,16 +139,26 @@ function Hero({ data }: { data: DashboardData }) {
             proceso y entidad por entidad, con datos documentados.
           </p>
           <a className="button button-light" href="#historia">Explorar la historia <span aria-hidden="true">↓</span></a>
+          <Glossary />
         </div>
         <div className="hero-stat">
           <p className="eyebrow">Participación nacional · 2024</p>
           {latest?.value === null || latest?.value === undefined ? (
-            <Pending />
+            <Pending reason="La fuente disponible no reporta el porcentaje nacional de participación para 2024." />
           ) : (
             <>
               <strong>{formatPercent(latest.value)}</strong>
               <span className="hero-official">Oficial · INE</span>
             </>
+          )}
+          {latest?.voters !== null && latest?.voters !== undefined && latest.value !== null && latest.value !== undefined && (
+            <p className="hero-summary">
+              En 2024 votaron{" "}
+              <strong>
+                {new Intl.NumberFormat("es-MX", { maximumFractionDigits: 1 }).format(latest.voters / 1_000_000)} millones de personas
+              </strong>
+              : cerca de {Math.round(latest.value / 10)} de cada 10 entre quienes sí votaron y quienes no votaron.
+            </p>
           )}
           <p className="hero-stat-note">
             Edad promedio de las personas votantes · {latest?.averageAge === null || latest?.averageAge === undefined
@@ -173,6 +184,9 @@ function Hero({ data }: { data: DashboardData }) {
             })}
             <text x="8" y="106">2009</text><text x="352" y="106">2024</text>
           </svg>
+          <p className="chart-note">
+            La línea resume los porcentajes nacionales disponibles y mantiene separadas las elecciones presidenciales e intermedias. No muestra participación por estado ni por grupo.
+          </p>
         </div>
       </div>
     </section>
@@ -346,7 +360,7 @@ function MexicoMap({
   if (!data.map.topologyAvailable) {
     return (
       <div className="map-empty" role="status">
-        <Pending />
+        <Pending reason="No hay una geometría local validada para mostrar el mapa." />
         <p>{data.map.topologyError ?? "La geometría TopoJSON local no está disponible."}</p>
       </div>
     )
@@ -490,7 +504,7 @@ function StateCard({
       </div>
       <h3>{entity.name}</h3>
       {current?.value === null || current?.value === undefined ? (
-        <Pending />
+        <Pending reason="La fuente disponible no incluye la participación de esta entidad para 2024." />
       ) : (
         <>
           <strong className="state-value">{formatPercent(current.value)}</strong>
@@ -516,7 +530,9 @@ function StateCard({
         <div><dt>IML</dt><dd>{entity.iml === null ? "Dato pendiente" : entity.iml}</dd></div>
         <div><dt>IMV</dt><dd>{entity.imv === null ? "Dato pendiente" : entity.imv}</dd></div>
       </dl>
-      <p className="state-pending-note">Participación por estado en otras elecciones: dato pendiente.</p>
+      <p className="state-pending-note">
+        Participación por estado antes de 2024: dato pendiente. La fuente consultada solo incluye el desglose estatal de 2024.
+      </p>
       <button className="button button-secondary button-full" onClick={onDownload}>Descargar ficha PNG</button>
     </article>
   )
@@ -724,6 +740,9 @@ function StateExplorer({ data }: { data: DashboardData }) {
               <button className="map-retry" onClick={() => setMapRetry((value) => value + 1)}>Reintentar mapa</button>
             )}
             <MapLegend records={sortedEntities} year={2024} />
+            <p className="chart-note">
+              Muestra la participación oficial por entidad en 2024. No muestra resultados de otras elecciones ni participación por edad, sexo o tipo de sección.
+            </p>
           </div>
           <StateCard
             entity={selected}

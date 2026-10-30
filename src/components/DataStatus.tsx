@@ -12,13 +12,19 @@ export function preciseLabel(statistic: Statistic): string {
   return "Dato pendiente"
 }
 
-export function Pending({ compact = false }: { compact?: boolean }) {
+export function Pending({
+  compact = false,
+  reason = "La fuente disponible todavía no incluye este dato.",
+}: {
+  compact?: boolean
+  reason?: string
+}) {
   return (
     <div className={`pending${compact ? " pending-compact" : ""}`} role="status">
       <span className="pending-pattern" aria-hidden="true" />
       <span>
         <strong>Dato pendiente</strong>
-        {!compact && <small>La fuente disponible no incluye este dato.</small>}
+        <small>{reason}</small>
       </span>
     </div>
   )
