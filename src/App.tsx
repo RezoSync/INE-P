@@ -19,6 +19,7 @@ import { NationalHistory } from "./components/NationalHistory"
 import { Profiles } from "./components/Profiles"
 import { SectionHeading } from "./components/SectionHeading"
 import { Glossary } from "./components/Glossary"
+import { QuickQuestions } from "./components/QuickQuestions"
 import { Footer, Header } from "./components/SiteChrome"
 import type {
   DashboardData,
@@ -210,6 +211,13 @@ function MapLegend({ records, year }: { records: EntityRecord[]; year: number })
       ? `${oneDecimalFormatter.format(range.min)}–${oneDecimalFormatter.format(range.max)} %`
       : "Rango pendiente"
   }
+  if (!ranges.length) {
+    return (
+      <p className="map-legend-pending">
+        No hay datos estatales publicados para {year}; las entidades se muestran como “Dato pendiente”.
+      </p>
+    )
+  }
   return (
     <div className="map-legend" aria-label="Rangos de participación calculados con los datos disponibles">
       {Array.from({ length: 4 }, (_, index) => (
@@ -237,8 +245,11 @@ function MexicoMap({
   onSelect: (entity: EntityRecord) => void
 }) {
   const svgRef = useRef<SVGSVGElement>(null)
+  const zoomRef = useRef<d3.ZoomBehavior<SVGSVGElement, unknown> | null>(null)
+  const zoomTransformRef = useRef(d3.zoomIdentity)
   const [mapError, setMapError] = useState<string | null>(null)
   const [mapLoading, setMapLoading] = useState(data.map.topologyAvailable)
+  const [zoomScale, setZoomScale] = useState(1)
   useEffect(() => {
     if (!data.map.topologyAvailable || !data.map.objectName || !svgRef.current) return
     let active = true
@@ -268,7 +279,7 @@ function MexicoMap({
         const fills = [0, 1, 2, 3].map((index) =>
           styles.getPropertyValue(`--map-${index}`).trim(),
         )
-        const group = svg.append("g").attr("transform", "translate(0 0)")
+        const group = svg.append("g")
         const paths = group
           .selectAll<SVGPathElement, (typeof features)[number]>("path")
           .data(features)
@@ -343,6 +354,17 @@ function MexicoMap({
           })
           .text((item) => getEntityName(item.properties as Record<string, unknown> | null))
         paths.append("title").text((item) => getEntityName(item.properties as Record<string, unknown> | null))
+        const zoom = d3
+          .zoom<SVGSVGElement, unknown>()
+          .scaleExtent([1, 5])
+          .on("zoom", (event) => {
+            zoomTransformRef.current = event.transform
+            setZoomScale(event.transform.k)
+            group.attr("transform", event.transform.toString())
+          })
+        zoomRef.current = zoom
+        svg.call(zoom)
+        svg.call(zoom.transform, zoomTransformRef.current)
         setMapError(null)
         setMapLoading(false)
       })
@@ -389,6 +411,36 @@ function MexicoMap({
           </pattern>
         </defs>
       </svg>
+      <div className="map-zoom-controls" role="group" aria-label="Controles de acercamiento del mapa">
+          <button
+            type="button"
+            aria-label="Acercar mapa"
+            onClick={() => {
+              if (svgRef.current && zoomRef.current) {
+                d3.select(svgRef.current).call(zoomRef.current.scaleBy, 1.5)
+              }
+            }}
+          >+</button>
+          <button
+            type="button"
+            aria-label="Alejar mapa"
+            onClick={() => {
+              if (svgRef.current && zoomRef.current) {
+                d3.select(svgRef.current).call(zoomRef.current.scaleBy, 1 / 1.5)
+              }
+            }}
+          >−</button>
+          <button
+            type="button"
+            aria-label="Restablecer acercamiento del mapa"
+            onClick={() => {
+              if (svgRef.current && zoomRef.current) {
+                d3.select(svgRef.current).call(zoomRef.current.transform, d3.zoomIdentity)
+              }
+            }}
+          >Restablecer</button>
+          <span aria-live="polite">{Math.round(zoomScale * 100)} %</span>
+      </div>
     </div>
   )
 }
@@ -478,62 +530,101 @@ function StatesTable({
 
 function StateCard({
   entity,
-  national2024,
+  year,
+  national,
+  median,
   ranking,
   onDownload,
 }: {
   entity: EntityRecord
-  national2024: ElectionRecord | undefined
+  year: number
+  national: ElectionRecord | undefined
+  median: number | undefined
   ranking: number | null
   onDownload: () => void
 }) {
-  const current = recordForYear(entity.elections, 2024)
-  const comparison =
+  const current = recordForYear(entity.elections, year)
+  const nationalDifference =
     current?.value !== null &&
     current?.value !== undefined &&
-    national2024?.value !== null &&
-    national2024?.value !== undefined
-      ? current.value - national2024.value
+    national?.value !== null &&
+    national?.value !== undefined
+      ? current.value - national.value
+      : null
+  const medianDifference =
+    current?.value !== null &&
+    current?.value !== undefined &&
+    median !== null &&
+    median !== undefined
+      ? current.value - median
       : null
   const countFormatter = new Intl.NumberFormat("es-MX")
   return (
     <article className="state-card">
       <div className="state-card-header">
         <p className="eyebrow">Ficha de la entidad</p>
-        <span>2024</span>
+        <span>{year}</span>
       </div>
       <h3>{entity.name}</h3>
       {current?.value === null || current?.value === undefined ? (
-        <Pending reason="La fuente disponible no incluye la participación de esta entidad para 2024." />
+        <Pending reason={`La fuente disponible no incluye la participación estatal de ${year}; el dato se conserva pendiente.`} />
       ) : (
         <>
           <strong className="state-value">{formatPercent(current.value)}</strong>
-          <span className="precision-chip oficial">Oficial</span>
-          <div className="state-comparison">
-            <span>Posición entre las 32 entidades</span>
-            <strong>{ranking === null ? "Dato pendiente" : `${ranking} de 32`}</strong>
-            <span>Frente al 59.7 % nacional</span>
-            <strong>
-              {comparison === null
-                ? "Dato pendiente"
-                : `${comparison > 0 ? "+" : ""}${oneDecimalFormatter.format(comparison)} puntos`}
-            </strong>
-          </div>
+          <span className={`precision-chip ${current.precision ?? ""}`}>{preciseLabel(current)}</span>
         </>
       )}
-      <dl className="state-counts">
-        <div><dt>Sí votaron</dt><dd>{current?.voters === null || current?.voters === undefined ? "Dato pendiente" : countFormatter.format(current.voters)}</dd></div>
-        <div><dt>No votaron</dt><dd>{current?.nonVoters === null || current?.nonVoters === undefined ? "Dato pendiente" : countFormatter.format(current.nonVoters)}</dd></div>
-        <div><dt>Lista nominal</dt><dd>{entity.listNominal === null ? "Dato pendiente" : countFormatter.format(entity.listNominal)}</dd></div>
-        <div><dt>Votos no esp.</dt><dd>{entity.votesNoEsp === null ? "Dato pendiente" : countFormatter.format(entity.votesNoEsp)}</dd></div>
-        {/* TODO: confirmar el significado de IML e IMV antes de expandir sus siglas. */}
-        <div><dt>IML</dt><dd>{entity.iml === null ? "Dato pendiente" : entity.iml}</dd></div>
-        <div><dt>IMV</dt><dd>{entity.imv === null ? "Dato pendiente" : entity.imv}</dd></div>
-      </dl>
+      <div className="state-comparison">
+        <span>Posición entre las entidades con dato</span>
+        <strong>{ranking === null ? "Dato pendiente" : `${ranking} de 32`}</strong>
+        <span>Promedio nacional</span>
+        <strong>{formatPercent(national?.value ?? null)}</strong>
+        <span>Diferencia frente al promedio nacional</span>
+        <strong>{formatDifference(nationalDifference)}</strong>
+        <span>Mediana estatal</span>
+        <strong>{median === undefined ? "Dato pendiente" : formatPercent(median)}</strong>
+        <span>Diferencia frente a la mediana</span>
+        <strong>{formatDifference(medianDifference)}</strong>
+      </div>
+      {year === 2024 && (
+        <dl className="state-counts">
+          <div><dt>Sí votaron</dt><dd>{current?.voters === null || current?.voters === undefined ? "Dato pendiente" : countFormatter.format(current.voters)}</dd></div>
+          <div><dt>No votaron</dt><dd>{current?.nonVoters === null || current?.nonVoters === undefined ? "Dato pendiente" : countFormatter.format(current.nonVoters)}</dd></div>
+          <div><dt>Lista nominal</dt><dd>{entity.listNominal === null ? "Dato pendiente" : countFormatter.format(entity.listNominal)}</dd></div>
+          <div><dt>Votos no esp.</dt><dd>{entity.votesNoEsp === null ? "Dato pendiente" : countFormatter.format(entity.votesNoEsp)}</dd></div>
+          <div><dt>IML</dt><dd>{entity.iml === null ? "Dato pendiente" : entity.iml}</dd></div>
+          <div><dt>IMV</dt><dd>{entity.imv === null ? "Dato pendiente" : entity.imv}</dd></div>
+        </dl>
+      )}
       <p className="state-pending-note">
-        Participación por estado antes de 2024: dato pendiente. La fuente consultada solo incluye el desglose estatal de 2024.
+        {year === 2024
+          ? "Participación por estado de 2009 a 2021: dato pendiente. La fuente consultada solo incluye el desglose estatal de 2024."
+          : `La fuente consultada solo incluye el desglose estatal de 2024. Para ${year}, la participación por entidad sigue como “Dato pendiente”.`}
       </p>
       <button className="button button-secondary button-full" onClick={onDownload}>Descargar ficha PNG</button>
+    </article>
+  )
+}
+
+function formatDifference(value: number | null): string {
+  return value === null
+    ? "Dato pendiente"
+    : `${value > 0 ? "+" : ""}${oneDecimalFormatter.format(value)} puntos`
+}
+
+function EntityComparisonCard({ entity, year }: { entity: EntityRecord; year: number }) {
+  const statistic = recordForYear(entity.elections, year)
+  return (
+    <article className="entity-comparison-card">
+      <h4>{entity.name}</h4>
+      {statistic?.value === null || statistic?.value === undefined ? (
+        <Pending reason={`La fuente no incluye participación estatal para ${year}; el dato sigue pendiente.`} />
+      ) : (
+        <>
+          <strong>{formatPercent(statistic.value)}</strong>
+          <span>{preciseLabel(statistic)}</span>
+        </>
+      )}
     </article>
   )
 }
@@ -541,8 +632,10 @@ function StateCard({
 async function drawDownloadCard(
   entity: EntityRecord,
   statistic: ElectionRecord | undefined,
+  year: number,
   position: number | null,
   comparison: number | null,
+  nationalValue: number | null,
   topologyAvailable: boolean,
   objectName: string | null,
 ): Promise<void> {
@@ -600,8 +693,8 @@ async function drawDownloadCard(
   context.fillText(position === null ? "Posición: Dato pendiente" : `Posición ${position} de 32`, 82, 535)
   drawWrappedText(
     comparison === null
-      ? "Comparación nacional: Dato pendiente"
-      : `${comparison > 0 ? "+" : ""}${oneDecimalFormatter.format(comparison)} puntos frente al 59,7 % nacional`,
+      ? `Diferencia frente al promedio nacional (${formatPercent(nationalValue)}): Dato pendiente`
+      : `${comparison > 0 ? "+" : ""}${oneDecimalFormatter.format(comparison)} puntos frente al promedio nacional (${formatPercent(nationalValue)})`,
     82,
     580,
     540,
@@ -609,7 +702,7 @@ async function drawDownloadCard(
   )
   context.font = "500 22px 'Noto Sans', sans-serif"
   drawWrappedText(statistic?.source ?? "Fuente pendiente · Plataforma CCPC 2009–2024, INE", 82, 635, 540, 30)
-  context.fillText("Año 2024 · Oficial · INE", 82, 710)
+  context.fillText(`Año ${year} · ${statistic ? preciseLabel(statistic) : "Dato pendiente"} · INE`, 82, 710)
 
   const mapX = 695
   const mapY = 760
@@ -660,37 +753,81 @@ function StateExplorer({ data }: { data: DashboardData }) {
     [data.entities],
   )
   const [selectedCode, setSelectedCode] = useState(sortedEntities[0]?.code ?? "")
+  const [compareCode, setCompareCode] = useState(sortedEntities[1]?.code ?? "")
+  const [entitySearch, setEntitySearch] = useState("")
+  const [electionKind, setElectionKind] = useState<ElectionRecord["kind"]>("presidencial")
+  const [year, setYear] = useState(2024)
   const [view, setView] = useState<"map" | "table">("map")
   const [mapRetry, setMapRetry] = useState(0)
   const [downloadError, setDownloadError] = useState<string | null>(null)
   const selected = sortedEntities.find(({ code }) => code === selectedCode) ?? sortedEntities[0]!
-  const national2024 = recordForYear(data.national, 2024)
+  const compared = sortedEntities.find(({ code }) => code === compareCode && code !== selected.code)
+    ?? sortedEntities.find(({ code }) => code !== selected.code)
+    ?? selected
+  const electionOptions = elections.filter(({ kind }) => kind === electionKind)
+  const national = recordForYear(data.national, year)
+  const quartile = data.quartiles.find((record) => record.year === year)
   const sortedByParticipation = useMemo(
-    () => [...sortedEntities].sort((left, right) =>
-      (recordForYear(right.elections, 2024)?.value ?? -1) -
-      (recordForYear(left.elections, 2024)?.value ?? -1),
-    ),
-    [sortedEntities],
+    () => sortedEntities
+      .flatMap((entity) => {
+        const value = recordForYear(entity.elections, year)?.value
+        return value === null || value === undefined ? [] : [{ entity, value }]
+      })
+      .sort((left, right) => right.value - left.value),
+    [sortedEntities, year],
   )
-  const rankingIndex = sortedByParticipation.findIndex(({ code }) => code === selected.code)
-  const ranking = recordForYear(selected.elections, 2024)?.value === null ? null : rankingIndex + 1
-  const selectedValue = recordForYear(selected.elections, 2024)?.value
+  const rankingIndex = sortedByParticipation.findIndex(({ entity }) => entity.code === selected.code)
+  const selectedValue = recordForYear(selected.elections, year)?.value
+  const ranking = selectedValue === null || selectedValue === undefined ? null : rankingIndex + 1
+  const comparedValue = recordForYear(compared.elections, year)?.value
   const comparison =
     selectedValue !== null &&
     selectedValue !== undefined &&
-    national2024?.value !== null &&
-    national2024?.value !== undefined
-      ? selectedValue - national2024.value
+    national?.value !== null &&
+    national?.value !== undefined
+      ? selectedValue - national.value
       : null
-  const onSelect = useCallback((entity: EntityRecord) => setSelectedCode(entity.code), [])
+  const stateDifference =
+    selectedValue !== null &&
+    selectedValue !== undefined &&
+    comparedValue !== null &&
+    comparedValue !== undefined
+      ? selectedValue - comparedValue
+      : null
+  const onSelect = useCallback((entity: EntityRecord) => {
+    setSelectedCode(entity.code)
+    setEntitySearch("")
+    setCompareCode((current) =>
+      current === entity.code
+        ? sortedEntities.find(({ code }) => code !== entity.code)?.code ?? ""
+        : current,
+    )
+  }, [sortedEntities])
+  const changeElectionKind = (kind: ElectionRecord["kind"]) => {
+    setElectionKind(kind)
+    const available = elections.filter((election) => election.kind === kind)
+    setYear(available[available.length - 1]!.year)
+  }
+  const entityOptions = entitySearch.trim()
+    ? [
+        selected,
+        ...sortedEntities.filter(
+          (entity) =>
+            entity.code !== selected.code &&
+            normalizeEntityName(entity.name).includes(normalizeEntityName(entitySearch)),
+        ),
+      ]
+    : sortedEntities
   const handleDownload = async () => {
     try {
       setDownloadError(null)
       await drawDownloadCard(
         selected,
-        recordForYear(selected.elections, 2024),
+        recordForYear(selected.elections, year),
+        year,
         ranking,
         comparison,
+        national?.value ?? null,
         data.map.topologyAvailable,
         data.map.objectName,
       )
@@ -707,50 +844,153 @@ function StateExplorer({ data }: { data: DashboardData }) {
           number="02"
           eyebrow="Tu territorio, tu historia"
           title={<>¿Cómo participa<br />tu estado?</>}
-          description="Explora los datos oficiales de participación por entidad en 2024. Las elecciones anteriores no tienen desglose estatal disponible en esta versión."
+          description="Explora la participación por entidad y compara dos estados. El desglose estatal solo está disponible para 2024; en los demás años verás “Dato pendiente”."
         />
         <div className="explorer-controls">
-          <label htmlFor="entity-select">Selecciona una entidad</label>
+          <div className="entity-picker">
+            <label htmlFor="entity-search">Busca una entidad</label>
+            <input
+              id="entity-search"
+              type="search"
+              value={entitySearch}
+              placeholder="Escribe el nombre"
+              onChange={(event) => setEntitySearch(event.target.value)}
+              aria-describedby="entity-search-help"
+            />
+            <span id="entity-search-help">Después, elige una opción de la lista.</span>
+            <label htmlFor="entity-select">Entidad seleccionada</label>
+            <select
+              id="entity-select"
+              value={selected.code}
+              onChange={(event) =>
+                onSelect(data.entities.find(({ code }) => code === event.target.value) ?? selected)
+              }
+            >
+              {entityOptions.map((entity) => (
+                <option key={entity.code} value={entity.code}>{entity.name}</option>
+              ))}
+            </select>
+            {entitySearch.trim() &&
+              !sortedEntities.some((entity) =>
+                normalizeEntityName(entity.name).includes(normalizeEntityName(entitySearch)),
+              ) && <span className="search-empty" role="status">No encontramos coincidencias.</span>}
+          </div>
+          <fieldset className="election-kind-control">
+            <legend>Tipo de elección</legend>
+            <div className="view-toggle">
+              <button
+                type="button"
+                aria-pressed={electionKind === "presidencial"}
+                className={electionKind === "presidencial" ? "active" : ""}
+                onClick={() => changeElectionKind("presidencial")}
+              >Presidenciales</button>
+              <button
+                type="button"
+                aria-pressed={electionKind === "intermedia"}
+                className={electionKind === "intermedia" ? "active" : ""}
+                onClick={() => changeElectionKind("intermedia")}
+              >Intermedias</button>
+            </div>
+          </fieldset>
+          <label className="election-year-control" htmlFor="election-year-select">Elección</label>
           <select
-            id="entity-select"
-            value={selected.code}
-            onChange={(event) => onSelect(data.entities.find(({ code }) => code === event.target.value) ?? selected)}
+            id="election-year-select"
+            value={year}
+            onChange={(event) => setYear(Number(event.target.value))}
           >
-            {sortedEntities.map((entity) => <option key={entity.code} value={entity.code}>{entity.name}</option>)}
+            {electionOptions.map((election) => (
+              <option key={election.year} value={election.year}>{election.year}</option>
+            ))}
           </select>
           <div className="view-toggle" role="group" aria-label="Vista de entidades">
-            <button aria-pressed={view === "map"} className={view === "map" ? "active" : ""} onClick={() => setView("map")}>Mapa</button>
-            <button aria-pressed={view === "table"} className={view === "table" ? "active" : ""} onClick={() => setView("table")}>Tabla</button>
+            <button type="button" aria-pressed={view === "map"} className={view === "map" ? "active" : ""} onClick={() => setView("map")}>Mapa</button>
+            <button type="button" aria-pressed={view === "table"} className={view === "table" ? "active" : ""} onClick={() => setView("table")}>Tabla</button>
           </div>
         </div>
+        <p className="explorer-help">
+          Este año actualiza el mapa o la tabla, la ficha, el ranking y la comparación. La participación por entidad solo tiene datos para 2024.
+        </p>
         <div className="explorer-grid">
           <div className="map-panel">
             {view === "map" ? (
               <MexicoMap
                 data={data}
                 selected={selected}
-                year={2024}
+                year={year}
                 retryToken={mapRetry}
                 onSelect={onSelect}
               />
             ) : (
-              <StatesTable entities={sortedEntities} selected={selected} year={2024} onSelect={onSelect} />
+              <StatesTable entities={sortedEntities} selected={selected} year={year} onSelect={onSelect} />
             )}
             {view === "map" && data.map.topologyAvailable && (
-              <button className="map-retry" onClick={() => setMapRetry((value) => value + 1)}>Reintentar mapa</button>
+              <button className="map-retry" type="button" onClick={() => setMapRetry((value) => value + 1)}>Reintentar mapa</button>
             )}
-            <MapLegend records={sortedEntities} year={2024} />
+            {view === "map" && <MapLegend records={sortedEntities} year={year} />}
+            <section className="participation-ranking" aria-label={`Mayor y menor participación en ${year}`}>
+              <h3>Mayor y menor participación · {year}</h3>
+              {sortedByParticipation.length ? (
+                <div className="ranking-options">
+                  {[sortedByParticipation[0]!, sortedByParticipation[sortedByParticipation.length - 1]!].map(
+                    ({ entity, value }, index) => (
+                      <button
+                        type="button"
+                        key={entity.code}
+                        className="ranking-option"
+                        aria-label={`${index === 0 ? "Mayor" : "Menor"} participación: ${entity.name}, ${formatPercent(value)}`}
+                        onClick={() => onSelect(entity)}
+                      >
+                        <span>{index === 0 ? "Mayor" : "Menor"} participación</span>
+                        <strong>{entity.name}</strong>
+                        <b>{formatPercent(value)}</b>
+                      </button>
+                    ),
+                  )}
+                </div>
+              ) : (
+                <p>Dato pendiente: la fuente no incluye participación estatal para {year}.</p>
+              )}
+            </section>
             <p className="chart-note">
-              Muestra la participación oficial por entidad en 2024. No muestra resultados de otras elecciones ni participación por edad, sexo o tipo de sección.
+              Muestra la participación por entidad para {year}. No muestra participación por edad, sexo o tipo de sección.
             </p>
           </div>
           <StateCard
             entity={selected}
-            national2024={national2024}
+            year={year}
+            national={national}
+            median={quartile?.median}
             ranking={ranking}
             onDownload={() => void handleDownload()}
           />
         </div>
+        <section className="comparison-panel" aria-labelledby="comparison-title">
+          <div className="comparison-heading">
+            <div>
+              <p className="eyebrow">Comparación directa</p>
+              <h3 id="comparison-title">Dos entidades, lado a lado</h3>
+            </div>
+            <label htmlFor="compare-entity-select">Compara con otra entidad</label>
+            <select
+              id="compare-entity-select"
+              value={compared.code}
+              onChange={(event) => setCompareCode(event.target.value)}
+            >
+              {sortedEntities
+                .filter(({ code }) => code !== selected.code)
+                .map((entity) => (
+                  <option key={entity.code} value={entity.code}>{entity.name}</option>
+                ))}
+            </select>
+          </div>
+          <div className="entity-comparison-grid">
+            <EntityComparisonCard entity={selected} year={year} />
+            <EntityComparisonCard entity={compared} year={year} />
+          </div>
+          <p className="comparison-difference" aria-live="polite">
+            Diferencia entre ambas en {year}: {formatDifference(stateDifference)}.
+          </p>
+        </section>
         <div className="download-panel">
           <div>
             <p className="eyebrow">Ficha para compartir</p>
@@ -811,6 +1051,7 @@ function Dashboard() {
         <>
           <main id="contenido">
             <Hero data={data} />
+            <QuickQuestions />
             <NationalHistory data={data} />
             <StateExplorer data={data} />
             <Profiles records={data.profiles} national={data.national} />

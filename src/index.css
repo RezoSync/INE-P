@@ -22,7 +22,7 @@
       color: var(--ink);
       background: var(--paper);
       font-family: "Noto Sans", sans-serif;
-      font-size: 16px;
+      font-size: calc(16px * var(--text-scale, 1));
       line-height: 1.6;
     }
 
@@ -115,7 +115,7 @@
   align-items: center;
   gap: 10px;
   color: var(--wine);
-  font: 700 12px/1.05 Montserrat, sans-serif;
+  font: 700 calc(12px * var(--text-scale, 1))/1.05 Montserrat, sans-serif;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -128,7 +128,7 @@
   color: var(--paper);
   background: var(--wine);
   border-radius: 50% 50% 50% 8px;
-  font: 700 18px Montserrat, sans-serif;
+  font: 700 calc(18px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .nav-links {
@@ -137,7 +137,7 @@
   align-items: center;
   gap: clamp(12px, 2vw, 28px);
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 600;
 }
 
@@ -164,6 +164,89 @@
 
 .nav-links a.active {
   color: var(--wine);
+}
+
+.site-preferences {
+  position: relative;
+  flex: none;
+}
+
+.site-preferences summary {
+  display: grid;
+  min-width: 44px;
+  min-height: 44px;
+  padding-inline: 8px;
+  place-items: center;
+  color: var(--wine);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: calc(12px * var(--text-scale, 1));
+  font-weight: 700;
+  list-style: none;
+}
+
+.site-preferences summary::-webkit-details-marker {
+  display: none;
+}
+
+.preferences-panel {
+  position: absolute;
+  z-index: 60;
+  top: calc(100% + 10px);
+  right: 0;
+  display: grid;
+  width: min(280px, calc(100vw - 32px));
+  padding: 16px;
+  gap: 10px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.preferences-panel button,
+.preferences-panel select {
+  min-height: 44px;
+  padding: 8px 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.preferences-panel button {
+  color: var(--paper);
+  background: var(--wine);
+  font-weight: 700;
+}
+
+.preferences-panel label {
+  color: var(--muted);
+  font-size: calc(13px * var(--text-scale, 1));
+  font-weight: 700;
+}
+
+.preferences-panel p {
+  margin: 0;
+  color: var(--wine);
+  font-size: calc(12px * var(--text-scale, 1));
+}
+
+.back-to-top {
+  position: fixed;
+  z-index: 45;
+  right: max(16px, calc((100vw - var(--content-width)) / 2));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  min-height: 48px;
+  padding: 0 16px;
+  color: var(--paper);
+  background: var(--wine);
+  border: 2px solid var(--paper);
+  border-radius: 999px;
+  box-shadow: var(--shadow-card);
+  font-weight: 700;
 }
 
 .button {
@@ -209,6 +292,29 @@
   width: 100%;
 }
 
+.quick-questions {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 10px;
+  padding-block: var(--space-3);
+}
+
+.quick-questions > p {
+  grid-column: 1 / -1;
+  margin: 0;
+  color: var(--wine);
+  font: 700 calc(16px * var(--text-scale, 1)) Montserrat, sans-serif;
+}
+
+.quick-questions .button {
+  min-width: 0;
+  min-height: 56px;
+  padding: 10px 12px;
+  line-height: 1.35;
+  text-align: center;
+}
+
 .hero {
   display: flex;
   min-height: 760px;
@@ -230,7 +336,7 @@
 .eyebrow,
 .section-number {
   color: var(--gold);
-  font: 700 12px Montserrat, sans-serif;
+  font: 700 calc(12px * var(--text-scale, 1)) Montserrat, sans-serif;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
@@ -242,7 +348,7 @@
 
 .hero h1 {
   margin: var(--space-3) 0;
-  font: 700 clamp(64px, 7vw, 106px)/0.98 Montserrat, sans-serif;
+  font: 700 clamp(calc(64px * var(--text-scale, 1)), 7vw, calc(106px * var(--text-scale, 1)))/0.98 Montserrat, sans-serif;
   letter-spacing: -0.06em;
 }
 
@@ -255,7 +361,7 @@
   max-width: 620px;
   margin-bottom: var(--space-4);
   color: color-mix(in srgb, var(--paper) 84%, transparent);
-  font-size: 20px;
+  font-size: calc(20px * var(--text-scale, 1));
 }
 
 .hero-stat {
@@ -275,14 +381,14 @@
   color: var(--paper);
   border: 1px solid color-mix(in srgb, var(--paper) 55%, transparent);
   border-radius: 999px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
 }
 
 .hero-stat > strong {
   display: block;
   color: var(--magenta-light);
-  font: 700 clamp(60px, 8vw, 110px)/1 Montserrat, sans-serif;
+  font: 700 clamp(calc(60px * var(--text-scale, 1)), 8vw, calc(110px * var(--text-scale, 1)))/1 Montserrat, sans-serif;
   letter-spacing: -0.06em;
 }
 
@@ -336,7 +442,7 @@
 
 .hero-sparkline text {
   fill: var(--paper);
-  font: 11px "Noto Sans", sans-serif;
+  font: calc(11px * var(--text-scale, 1)) "Noto Sans", sans-serif;
 }
 
 .hero-sparkline text:last-child {
@@ -377,7 +483,7 @@
 .cta h2 {
   margin: 0;
   color: var(--wine);
-  font: 700 clamp(34px, 4vw, 52px)/1.12 Montserrat, sans-serif;
+  font: 700 clamp(calc(34px * var(--text-scale, 1)), 4vw, calc(52px * var(--text-scale, 1)))/1.12 Montserrat, sans-serif;
   letter-spacing: -0.04em;
 }
 
@@ -423,12 +529,12 @@
 
 .timeline li strong {
   color: var(--wine);
-  font: 700 24px Montserrat, sans-serif;
+  font: 700 calc(24px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .timeline li span:last-child {
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 
 .timeline-stat {
@@ -438,7 +544,7 @@
 
 .timeline li small {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 
 .series-grid {
@@ -464,13 +570,13 @@
 .download-panel h3 {
   margin: 0 0 6px;
   color: var(--wine);
-  font: 700 20px Montserrat, sans-serif;
+  font: 700 calc(20px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .series-description,
 .source-note {
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 
 .bar-chart {
@@ -491,7 +597,7 @@
   position: absolute;
   left: 0;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   transform: translateY(50%);
 }
 
@@ -517,7 +623,7 @@
 .bar-value {
   min-height: 34px;
   color: var(--ink);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 700;
   text-align: center;
 }
@@ -570,7 +676,7 @@
 .profile-chart-heading h3 {
   margin: 0;
   color: var(--wine);
-  font: 700 20px Montserrat, sans-serif;
+  font: 700 calc(20px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .quartile-heading > p,
@@ -579,7 +685,7 @@
   max-width: 520px;
   margin: 0;
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 
 .quartile-chart {
@@ -594,7 +700,7 @@
   align-items: center;
   gap: 10px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .quartile-row > strong {
@@ -602,7 +708,7 @@
 }
 
 .quartile-kind {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 
 .quartile-track {
@@ -652,11 +758,11 @@
   margin-left: 167px;
   justify-content: space-between;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 
 .chart-bar > strong {
-  font: 700 13px Montserrat, sans-serif;
+  font: 700 calc(13px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .precision-chip {
@@ -667,7 +773,7 @@
   color: var(--muted);
   background: var(--warm);
   border-radius: 999px;
-  font-size: 10px;
+  font-size: calc(10px * var(--text-scale, 1));
   font-weight: 700;
   white-space: nowrap;
 }
@@ -725,7 +831,7 @@
   min-height: 36px;
   padding: 4px;
   border: 0;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   width: 100%;
 }
 
@@ -747,9 +853,48 @@
   margin-bottom: var(--space-3);
 }
 
+.entity-picker {
+  display: grid;
+  min-width: min(100%, 300px);
+  flex: 1 1 340px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6px;
+}
+
+.entity-picker label,
+.election-kind-control legend,
+.comparison-heading label {
+  color: var(--muted);
+  font-size: calc(13px * var(--text-scale, 1));
+  font-weight: 700;
+}
+
+.entity-picker input,
+.entity-picker select,
+.explorer-controls select,
+.comparison-heading select {
+  min-width: 0;
+  min-height: 44px;
+  padding: 0 34px 0 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+}
+
+.entity-picker input {
+  padding-right: 12px;
+}
+
+.entity-picker > span,
+.search-empty {
+  color: var(--muted);
+  font-size: calc(12px * var(--text-scale, 1));
+}
+
 .explorer-controls label {
   color: var(--muted);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
 }
 
@@ -766,8 +911,30 @@
   margin-left: var(--space-2);
 }
 
+.election-kind-control {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.election-kind-control legend {
+  margin-bottom: 6px;
+}
+
+.election-year-control {
+  align-self: center;
+}
+
+.explorer-help {
+  margin: 0 0 var(--space-3);
+  color: var(--muted);
+  font-size: calc(13px * var(--text-scale, 1));
+}
+
 .view-toggle {
   display: inline-flex;
+  flex-wrap: wrap;
   margin-left: auto;
   padding: 4px;
   background: var(--warm);
@@ -781,7 +948,7 @@
   background: transparent;
   border: 0;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
 }
 
@@ -826,6 +993,37 @@
   position: relative;
 }
 
+.map-zoom-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.map-zoom-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 12px;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+}
+
+.map-zoom-controls button:hover {
+  border-color: var(--wine);
+}
+
+.map-zoom-controls span {
+  min-width: 48px;
+  color: var(--muted);
+  font-size: calc(12px * var(--text-scale, 1));
+  text-align: right;
+}
+
 .map-loading-overlay {
   position: absolute;
   z-index: 1;
@@ -849,7 +1047,7 @@
 }
 
 .mexico-map text {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   font-weight: 700;
   paint-order: stroke;
   stroke: var(--paper);
@@ -863,7 +1061,13 @@
   gap: 12px;
   margin-top: var(--space-2);
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
+}
+
+.map-legend-pending {
+  margin: var(--space-2) 0 0;
+  color: var(--muted);
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .map-legend > span {
@@ -901,7 +1105,7 @@
   justify-content: space-between;
   gap: 8px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .state-card-header .eyebrow {
@@ -910,14 +1114,14 @@
 
 .state-card h3 {
   margin-bottom: var(--space-2);
-  font-size: 24px;
+  font-size: calc(24px * var(--text-scale, 1));
 }
 
 .state-value {
   display: block;
   margin-bottom: 8px;
   color: var(--magenta);
-  font: 700 52px Montserrat, sans-serif;
+  font: 700 calc(52px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .state-comparison {
@@ -931,7 +1135,111 @@
 
 .state-comparison span {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
+}
+
+.participation-ranking,
+.comparison-panel {
+  margin-top: var(--space-4);
+  padding: var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--paper);
+}
+
+.participation-ranking h3,
+.comparison-panel h3 {
+  margin: 0;
+  color: var(--wine);
+  font: 700 calc(18px * var(--text-scale, 1)) Montserrat, sans-serif;
+}
+
+.ranking-options,
+.entity-comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.ranking-option {
+  display: grid;
+  min-width: 0;
+  min-height: 76px;
+  padding: 12px;
+  gap: 4px;
+  color: var(--ink);
+  background: var(--warm);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+
+.ranking-option:hover,
+.ranking-option:focus-visible {
+  border-color: var(--wine);
+}
+
+.ranking-option span,
+.entity-comparison-card span {
+  color: var(--muted);
+  font-size: calc(12px * var(--text-scale, 1));
+}
+
+.ranking-option strong {
+  overflow-wrap: anywhere;
+}
+
+.ranking-option b {
+  color: var(--magenta);
+}
+
+.comparison-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: 12px;
+}
+
+.comparison-heading > div {
+  flex: 1 1 100%;
+}
+
+.comparison-heading label {
+  flex: 0 1 220px;
+}
+
+.comparison-heading select {
+  flex: 1 1 220px;
+}
+
+.entity-comparison-card {
+  display: grid;
+  min-width: 0;
+  min-height: 122px;
+  align-content: start;
+  padding: 14px;
+  gap: 8px;
+  background: var(--warm);
+  border-radius: var(--radius-sm);
+}
+
+.entity-comparison-card h4 {
+  margin: 0;
+  color: var(--wine);
+  font: 700 calc(16px * var(--text-scale, 1)) Montserrat, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.entity-comparison-card > strong {
+  color: var(--magenta);
+  font: 700 calc(28px * var(--text-scale, 1)) Montserrat, sans-serif;
+}
+
+.comparison-difference {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-weight: 700;
 }
 
 .state-counts {
@@ -949,13 +1257,13 @@
 
 .state-counts dt {
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .state-counts dd {
   margin: 2px 0 0;
   color: var(--ink);
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   font-weight: 700;
   overflow-wrap: anywhere;
 }
@@ -963,13 +1271,13 @@
 .state-pending-note {
   margin: 0 0 var(--space-2);
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .state-card h4 {
   margin: var(--space-3) 0 8px;
   color: var(--wine);
-  font: 700 14px Montserrat, sans-serif;
+  font: 700 calc(14px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .mini-chart {
@@ -1012,12 +1320,12 @@
 }
 
 .mini-chart-column small {
-  font-size: 9px;
+  font-size: calc(9px * var(--text-scale, 1));
 }
 
 .mini-pending {
   color: var(--muted);
-  font-size: 8px;
+  font-size: calc(8px * var(--text-scale, 1));
   line-height: 1.1;
   text-align: center;
 }
@@ -1027,7 +1335,7 @@
   gap: 16px;
   margin-block: 8px 20px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 
 .mini-legend span::before {
@@ -1051,7 +1359,7 @@
 table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: calc(14px * var(--text-scale, 1));
   text-align: left;
 }
 
@@ -1104,7 +1412,7 @@ td {
 }
 
 .download-panel h3 {
-  font-size: 28px;
+  font-size: calc(28px * var(--text-scale, 1));
 }
 
 .download-panel p:last-child {
@@ -1180,14 +1488,14 @@ td {
 .composition-row > strong,
 .composition-total {
   color: var(--wine);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
 .composition-kind {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }
 
 .composition-stack {
@@ -1225,7 +1533,7 @@ td {
   padding: 0;
   list-style: none;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .composition-legend li {
@@ -1272,7 +1580,7 @@ td {
 
 .average-age-value {
   color: var(--muted);
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
   text-align: center;
 }
 
@@ -1295,7 +1603,7 @@ td {
 
 .average-age-item > strong {
   color: var(--wine);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
 }
 
 .age-sex-pending {
@@ -1334,7 +1642,7 @@ td {
 .age-sex-pending h3 {
   margin: 0;
   color: var(--wine);
-  font: 700 16px Montserrat, sans-serif;
+  font: 700 calc(16px * var(--text-scale, 1)) Montserrat, sans-serif;
   overflow-wrap: anywhere;
   word-break: break-word;
 }
@@ -1423,7 +1731,7 @@ td {
 .load-error > h1,
 .fatal-error h1 {
   color: var(--wine);
-  font: 700 40px Montserrat, sans-serif;
+  font: 700 calc(40px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .fatal-error {
@@ -1454,12 +1762,12 @@ td {
 
 .footer h2 {
   margin-bottom: var(--space-2);
-  font: 700 19px Montserrat, sans-serif;
+  font: 700 calc(19px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .footer h3 {
   margin: var(--space-3) 0 6px;
-  font: 700 15px Montserrat, sans-serif;
+  font: 700 calc(15px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .footer p {
@@ -1502,7 +1810,7 @@ td {
 
   .quartile-values {
     grid-column: 3;
-    font-size: 10px;
+    font-size: calc(10px * var(--text-scale, 1));
   }
 
   .quartile-axis {
@@ -1551,7 +1859,7 @@ td {
     min-width: 0;
     gap: 8px;
     overflow-x: auto;
-    font-size: 11px;
+    font-size: calc(11px * var(--text-scale, 1));
   }
 
   .nav-links a {
@@ -1561,6 +1869,21 @@ td {
 
   .nav-action {
     display: none;
+  }
+
+  .nav-inner {
+    gap: 8px;
+  }
+
+  .site-preferences summary {
+    padding-inline: 6px;
+    font-size: calc(11px * var(--text-scale, 1));
+  }
+
+  .preferences-panel {
+    position: fixed;
+    top: calc(var(--header-height) + 8px);
+    right: 12px;
   }
 
   .hero {
@@ -1573,11 +1896,11 @@ td {
   }
 
   .hero h1 {
-    font-size: clamp(58px, 15vw, 82px);
+    font-size: clamp(calc(58px * var(--text-scale, 1)), 15vw, calc(82px * var(--text-scale, 1)));
   }
 
   .hero-lead {
-    font-size: 17px;
+    font-size: calc(17px * var(--text-scale, 1));
   }
 
   .section {
@@ -1617,6 +1940,10 @@ td {
     align-items: stretch;
   }
 
+  .entity-picker {
+    flex-basis: 100%;
+  }
+
   .explorer-controls label:not(:first-child) {
     margin-left: 0;
   }
@@ -1634,6 +1961,29 @@ td {
     margin-left: 0;
   }
 
+  .explorer-controls > .view-toggle {
+    justify-content: center;
+  }
+
+  .quick-questions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .quick-questions .button {
+    min-height: 64px;
+  }
+
+  .ranking-options,
+  .entity-comparison-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-heading > label,
+  .comparison-heading select {
+    min-width: 100%;
+    flex-basis: 100%;
+  }
+
   .bar-chart {
     height: 270px;
   }
@@ -1647,7 +1997,7 @@ td {
   }
 
   .bar-value {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
 
   .download-panel,
@@ -1663,7 +2013,7 @@ td {
 
   .tabs button {
     padding-inline: 10px;
-    font-size: 12px;
+    font-size: calc(12px * var(--text-scale, 1));
   }
 
   .quartile-section,
@@ -1714,7 +2064,7 @@ td {
   }
 
   .average-age-value {
-    font-size: 9px;
+    font-size: calc(9px * var(--text-scale, 1));
   }
 
   .state-counts {
@@ -1789,7 +2139,7 @@ td {
   max-width: 46ch;
   margin: 18px 0;
   color: var(--paper);
-  font-size: 16px;
+  font-size: calc(16px * var(--text-scale, 1));
 }
 
 .hero-summary strong {
@@ -1803,7 +2153,7 @@ td {
 .chart-note {
   margin: 12px 0 0;
   color: var(--muted);
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   line-height: 1.5;
 }
 
@@ -1820,13 +2170,13 @@ td {
 .glossary h2 {
   margin: 0 0 4px;
   color: var(--paper);
-  font: 700 16px Montserrat, sans-serif;
+  font: 700 calc(16px * var(--text-scale, 1)) Montserrat, sans-serif;
 }
 
 .glossary > p {
   margin: 0 0 10px;
   color: color-mix(in srgb, var(--paper) 86%, transparent);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
 }
 
 .glossary ul {
@@ -1851,7 +2201,7 @@ td {
   border: 1px solid color-mix(in srgb, var(--paper) 65%, transparent);
   border-radius: 999px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: calc(12px * var(--text-scale, 1));
   font-weight: 700;
   list-style: none;
 }
@@ -1882,11 +2232,11 @@ td {
   border-radius: var(--radius-sm);
   background: var(--paper);
   box-shadow: var(--shadow-card);
-  font-size: 13px;
+  font-size: calc(13px * var(--text-scale, 1));
   font-weight: 400;
   line-height: 1.5;
 }
 
 .pending-compact small {
-  font-size: 11px;
+  font-size: calc(11px * var(--text-scale, 1));
 }

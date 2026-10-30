@@ -1,4 +1,58 @@
+import { useEffect, useState } from "react"
+
+type Theme = "light" | "dark"
+type TextSize = "normal" | "large" | "largest"
+
+const themeStorageKey = "ine-voto-theme"
+const textSizeStorageKey = "ine-voto-text-size"
+const textSizes = ["normal", "large", "largest"] as const
+
+function readPreference<T extends string>(
+  key: string,
+  allowed: readonly T[],
+  fallback: T,
+): T {
+  try {
+    const stored = localStorage.getItem(key)
+    return allowed.find((value) => value === stored) ?? fallback
+  } catch (error) {
+    console.error(`No se pudo leer la preferencia local "${key}".`, error)
+    return fallback
+  }
+}
+
 export function Header({ activeSection }: { activeSection: string }) {
+  const [theme, setTheme] = useState<Theme>(() =>
+    readPreference(themeStorageKey, ["light", "dark"], "light"),
+  )
+  const [textSize, setTextSize] = useState<TextSize>(() =>
+    readPreference(textSizeStorageKey, ["normal", "large", "largest"], "normal"),
+  )
+  const [preferenceError, setPreferenceError] = useState<string | null>(null)
+  const [showBackToTop, setShowBackToTop] = useState(false)
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+    document.documentElement.dataset.textSize = textSize
+  }, [theme, textSize])
+
+  useEffect(() => {
+    const updateVisibility = () => setShowBackToTop(window.scrollY > 500)
+    updateVisibility()
+    window.addEventListener("scroll", updateVisibility, { passive: true })
+    return () => window.removeEventListener("scroll", updateVisibility)
+  }, [])
+
+  const savePreference = (key: string, value: string) => {
+    try {
+      localStorage.setItem(key, value)
+      setPreferenceError(null)
+    } catch (error) {
+      setPreferenceError("No se pudo guardar la preferencia en este dispositivo.")
+      console.error(`No se pudo guardar la preferencia local "${key}".`, error)
+    }
+  }
+
   const links = [
     ["historia", "Historia"],
     ["estados", "Explora tu estado"],
@@ -26,9 +80,56 @@ export function Header({ activeSection }: { activeSection: string }) {
               </a>
             ))}
           </nav>
+          <details className="site-preferences">
+            <summary aria-label="Abrir ajustes de apariencia">Ajustes</summary>
+            <div className="preferences-panel">
+              <button
+                type="button"
+                aria-pressed={theme === "dark"}
+                onClick={() => {
+                  const nextTheme = theme === "dark" ? "light" : "dark"
+                  setTheme(nextTheme)
+                  savePreference(themeStorageKey, nextTheme)
+                }}
+              >
+                {theme === "dark" ? "Usar modo claro" : "Usar modo oscuro"}
+              </button>
+              <label htmlFor="text-size">Tamaño de letra</label>
+              <select
+                id="text-size"
+                value={textSize}
+                onChange={(event) => {
+                  const nextSize = textSizes.find((size) => size === event.target.value)
+                  if (nextSize) {
+                    setTextSize(nextSize)
+                    savePreference(textSizeStorageKey, nextSize)
+                  }
+                }}
+              >
+                <option value="normal">Normal</option>
+                <option value="large">Grande</option>
+                <option value="largest">Más grande</option>
+              </select>
+              {preferenceError && <p role="alert">{preferenceError}</p>}
+            </div>
+          </details>
           <a className="button nav-action" href="#estados">Explora los datos</a>
         </div>
       </header>
+      {showBackToTop && (
+        <button
+          className="back-to-top"
+          type="button"
+          onClick={() => window.scrollTo({
+            top: 0,
+            behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+              ? "auto"
+              : "smooth",
+          })}
+        >
+          Volver arriba
+        </button>
+      )}
     </>
   )
 }

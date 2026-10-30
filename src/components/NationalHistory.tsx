@@ -83,7 +83,7 @@ export function NationalHistory({ data }: { data: DashboardData }) {
           />
         </div>
         <p className="history-insight">{insight}</p>
-        <section className="quartile-section" aria-labelledby="quartile-title">
+        <section className="quartile-section" id="cuartiles" aria-labelledby="quartile-title">
           <div className="quartile-heading">
             <div>
               <p className="eyebrow">Variación entre entidades</p>
