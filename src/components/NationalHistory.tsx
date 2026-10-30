@@ -1,6 +1,7 @@
 import { SectionHeading } from "./SectionHeading"
 import { Timeline } from "./Timeline"
 import { PrecisionChip, formatPercent } from "./DataStatus"
+import { SectionActions } from "./SectionActions"
 import type { DashboardData, ElectionRecord } from "../data/types"
 
 const quartileFormatter = new Intl.NumberFormat("es-MX", { maximumFractionDigits: 1 })
@@ -83,6 +84,20 @@ export function NationalHistory({ data }: { data: DashboardData }) {
           />
         </div>
         <p className="history-insight">{insight}</p>
+        <SectionActions
+          sectionId="historia"
+          fileName="participacion-nacional"
+          rows={data.national.map((record) => ({
+            Año: record.year,
+            "Tipo de elección": record.kind === "presidencial" ? "Presidencial" : "Intermedia",
+            "Participación (%)": record.value,
+            Precisión: record.precision === "oficial" ? "Oficial" : record.precision === "aproximado" ? "Aproximado" : null,
+            "Sí votaron": record.voters,
+            "No votaron": record.nonVoters,
+            "Edad promedio": record.averageAge,
+            "Fuente": record.source,
+          }))}
+        />
         <section className="quartile-section" id="cuartiles" aria-labelledby="quartile-title">
           <div className="quartile-heading">
             <div>
@@ -113,6 +128,20 @@ export function NationalHistory({ data }: { data: DashboardData }) {
           <p className="chart-note">
             Muestra cómo se distribuye la participación entre entidades en cada elección. No identifica qué entidad ocupa cada valor ni representa la participación de cada grupo de personas.
           </p>
+          <SectionActions
+            sectionId="cuartiles"
+            fileName="cuartiles-estatales"
+            rows={data.quartiles.map((record) => ({
+              Año: record.year,
+              "Tipo de elección": record.kind === "presidencial" ? "Presidencial" : "Intermedia",
+              "Mínimo (%)": record.minimum,
+              "Cuartil 1 (%)": record.q1,
+              "Mediana (%)": record.median,
+              "Cuartil 3 (%)": record.q3,
+              "Máximo (%)": record.maximum,
+              "Fuente": record.source,
+            }))}
+          />
         </section>
       </div>
     </section>

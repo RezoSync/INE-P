@@ -21,6 +21,7 @@ import { SectionHeading } from "./components/SectionHeading"
 import { Glossary } from "./components/Glossary"
 import { QuickQuestions } from "./components/QuickQuestions"
 import { Footer, Header } from "./components/SiteChrome"
+import { SectionActions } from "./components/SectionActions"
 import type {
   DashboardData,
   EntityRecord,
@@ -991,6 +992,28 @@ function StateExplorer({ data }: { data: DashboardData }) {
             Diferencia entre ambas en {year}: {formatDifference(stateDifference)}.
           </p>
         </section>
+        <SectionActions
+          sectionId="estados"
+          fileName={`participacion-estatal-${year}`}
+          rows={sortedEntities.map((entity) => {
+            const statistic = recordForYear(entity.elections, year)
+            return {
+              Entidad: entity.name,
+              Clave: entity.code,
+              Año: year,
+              "Tipo de elección": electionKind === "presidencial" ? "Presidencial" : "Intermedia",
+              "Participación (%)": statistic?.value ?? null,
+              Precisión: statistic?.precision === "oficial"
+                ? "Oficial"
+                : statistic?.precision === "aproximado"
+                  ? "Aproximado"
+                  : null,
+              "Sí votaron": statistic?.voters ?? null,
+              "No votaron": statistic?.nonVoters ?? null,
+              Fuente: statistic?.source ?? null,
+            }
+          })}
+        />
         <div className="download-panel">
           <div>
             <p className="eyebrow">Ficha para compartir</p>
